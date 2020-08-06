@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
+import { BrowserRouter as Router } from 'react-router-dom'; 
 
 export default class extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-light">
+        <Router>    
         <NavLink className="navbar-brand" to="/">
           emoji{' '}
           <span role="img" aria-label="hand">
@@ -13,6 +15,7 @@ export default class extends Component {
           </span>{' '}
           song
         </NavLink>
+        </Router>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,20 +30,24 @@ export default class extends Component {
         <div className="collapse navbar-collapse" id="navbarColor03">
           <ul className="navbar-nav">
             <li className="nav-item">
+              <Router>
               <NavLink exact className="nav-link" to="/">
                 <span role="img" aria-label="loupe">
                   🔎
                 </span>{' '}
                 browse
               </NavLink>
+              </Router>
             </li>
             <li className="nav-item">
+              <Router>
               <NavLink exact className="nav-link" to="/add">
                 <span role="img" aria-label="plus">
                   ➕
                 </span>{' '}
                 add
               </NavLink>
+              </Router>
             </li>
           </ul>
         </div>
