@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Picker } from 'emoji-mart'
 import { filterWithEmojis, removeLastEmoji } from '../libs'
 import { split } from 'lodash'
@@ -6,7 +6,7 @@ import Banner from '../components/Banner'
 import ResultsList from '../components/ResultsList'
 import './Home.css'
 
-export default class extends Component {
+export default function Home(){
   state = {
     artists: [],
     songs: [],
@@ -15,14 +15,15 @@ export default class extends Component {
       type: 'both'
     }
   }
-  componentDidMount() {
+  useEffect(() => {
     Promise.all([fetch('/api/songs'), fetch('/api/artists')])
       .then(([songs, artists]) => Promise.all([songs.json(), artists.json()]))
       .then(([songs, artists]) =>
         this.setState({ songs: songs.message, artists: artists.message })
       )
       .catch(err => console.error(err))
-  }
+  },[])
+  
   handleSearchType = e => {
     this.setState({ search: { ...this.state.search, type: e.target.value } })
   }
