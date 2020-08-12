@@ -6,7 +6,9 @@ import Banner from './components/Banner'
 import ResultsList from './components/ResultsList'
 import './App.css'
 import Header from './components/Header'
-import index from './screens/index'
+import Footer from './components/Footer'
+import index from './screens/index'  
+
 
 export default class App extends Component {
   state = {
@@ -109,7 +111,7 @@ export default class App extends Component {
           artists={artists}
           search={this.state.search}
         />
-        <index />
+        <Footer />
       </div>
     )
   }
